@@ -47,10 +47,10 @@ function App() {
   }
 
   return (
-    <div className="flex flex-col items-center bg-linear-to-r/increasing from-indigo-500 to-teal-400">
+    <div className=" bg-linear-to-r/increasing from-indigo-500 to-teal-400">
       {pokemon ?
         <>
-        <div>
+        <div className= "flex flex-col items-center bg ">
           <p className="text-4xl">{capWord(pokemon.name)}</p>
           <img src={pokemon.sprites.other?.dream_world?.front_default ?? ""} alt={`picture of ${pokemon.name}`} />
           <p>
