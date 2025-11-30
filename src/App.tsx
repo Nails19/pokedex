@@ -4,12 +4,29 @@ import StatBar from "./components/StatBar";
 function App() {
 
   interface Poke {
+    id: number;
     name: string;
     abilities: Array<{
       ability: {
         name: string;
       }
-    }>
+    }>;
+    stats: Array<{
+      stat: {
+        name: string;
+      };
+      base_stat: number;
+    }>;
+    sprites: {
+      other?: {
+        dream_world?: {
+          front_default: string | null;
+        };
+      };
+    };
+    cries?: {
+      latest?: string;
+    };
   }
 
   const [pokemon, setPokemon] = useState<Poke | null>(null)
@@ -30,13 +47,14 @@ function App() {
   }
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center bg-linear-to-r/increasing from-indigo-500 to-teal-400">
       {pokemon ?
         <>
+        <div>
           <p className="text-4xl">{capWord(pokemon.name)}</p>
-          <img src={pokemon.sprites.other.dream_world.front_default} alt={`picture of ${pokemon.name}`} />
+          <img src={pokemon.sprites.other?.dream_world?.front_default ?? ""} alt={`picture of ${pokemon.name}`} />
           <p>
-            {pokemon.stats.map((elem: { stat: { name: string; }; base_stat: unknown; }, index: number) => {
+            {pokemon.stats.map((elem, index) => {
               return <StatBar
                 key={pokemon.id + index} name={capWord(elem.stat.name)}
                 value={elem.base_stat}
@@ -52,7 +70,8 @@ function App() {
               })
             }
           </ul>
-          <audio controls src={pokemon?.cries.latest}></audio>
+          <audio controls src={pokemon?.cries?.latest}></audio>
+        </div>
         </>
         :
         <h1 className="text-4xl">Fetching...</h1>
