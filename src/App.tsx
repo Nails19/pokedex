@@ -47,17 +47,10 @@ function App() {
   }
 
   return (
-<<<<<<< HEAD
     <div className="bg-linear-to-r/increasing from-indigo-500 to-teal-400">
       {pokemon ?
         <>
         <div className= "flex flex-col items-center">
-=======
-    <div className="flex flex-col items-center bg-linear-to-r/increasing from-indigo-500 to-teal-400">
-      {pokemon ?
-        <>
-        <div>
->>>>>>> b5a3e86 (Added bg and array to the interface)
           <p className="text-4xl">{capWord(pokemon.name)}</p>
           <img src={pokemon.sprites.other?.dream_world?.front_default ?? ""} alt={`picture of ${pokemon.name}`} />
           <p>
