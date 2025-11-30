@@ -47,7 +47,7 @@ function App() {
   }
 
   return (
-    <div className=" bg-linear-to-r/increasing from-indigo-500 to-teal-400">
+    <div className="bg-linear-to-r/increasing from-indigo-500 to-teal-400">
       {pokemon ?
         <>
         <div className= "flex flex-col items-center bg ">
