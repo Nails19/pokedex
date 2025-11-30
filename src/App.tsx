@@ -50,7 +50,7 @@ function App() {
     <div className="bg-linear-to-r/increasing from-indigo-500 to-teal-400">
       {pokemon ?
         <>
-        <div className= "flex flex-col items-center bg ">
+        <div className= "flex flex-col items-center">
           <p className="text-4xl">{capWord(pokemon.name)}</p>
           <img src={pokemon.sprites.other?.dream_world?.front_default ?? ""} alt={`picture of ${pokemon.name}`} />
           <p>
